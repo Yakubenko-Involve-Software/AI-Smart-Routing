@@ -48,13 +48,13 @@
             <!-- Tabs -->
             <div class="flex border border-slate-200 rounded-lg p-1">
                 <button class="w-1/2 py-2 text-sm font-medium text-slate-600 rounded-md hover:bg-slate-50">Sign up</button>
-                <button class="w-1/2 py-2 text-sm font-semibold text-slate-800 bg-white rounded-md shadow-sm">Log in</button>
+                <button class="w-1/2 py-2 text-sm font-semibold text-slate-800 bg-slate-100 rounded-md shadow-sm">Log in</button>
             </div>
             
             <form class="space-y-6" onsubmit="event.preventDefault(); document.getElementById('signInBtn').click();">
                 <div>
                     <label for="email" class="text-sm font-medium text-slate-700">Email</label>
-                    <input type="email" id="email" placeholder="Enter your email" value="demo@example.com" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                    <input type="email" id="email" placeholder="Enter your email" value="olivia.rhye@example.com" class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-lg text-sm shadow-sm placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
                 </div>
                 <div>
                     <label for="password" class="text-sm font-medium text-slate-700">Password</label>
@@ -75,7 +75,7 @@
                     </button>
                 </div>
                 <div>
-                     <button type="button" class="w-full flex items-center justify-center py-2 px-4 border border-slate-300 rounded-lg shadow-sm bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                     <button type="button" id="googleSignInBtn" class="w-full flex items-center justify-center py-2 px-4 border border-slate-300 rounded-lg shadow-sm bg-white text-sm font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                         <svg class="w-5 h-5 mr-2" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512"><path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 126 21.2 172.9 56.6l-67.1 67.1C324.5 97.4 288.1 80 248 80c-82.8 0-150.5 67.7-150.5 150.5S165.2 406.5 248 406.5c71.2 0 129.5-48.9 144.3-112.9H248v-89.9h235.5c4.7 25.6 7.5 53.3 7.5 83.2z"></path></svg>
                         <span>Sign in with Google</span>
                     </button>

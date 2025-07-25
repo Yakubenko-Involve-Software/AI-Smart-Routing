@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function setupEventListeners() {
     // Start demo button
     document.getElementById('signInBtn').addEventListener('click', startDemo);
+    document.getElementById('googleSignInBtn').addEventListener('click', startDemo);
     
     // Tab buttons
     document.getElementById('currentRoutesTab').addEventListener('click', () => switchTab('current'));
