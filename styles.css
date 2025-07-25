@@ -1,0 +1,574 @@
+/* Custom styles for AI Smart Routing */
+
+/* Tab buttons */
+.tab-btn {
+    color: #64748b;
+}
+
+.tab-btn.active {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+.tab-btn:hover:not(.active) {
+    background-color: #f1f5f9;
+}
+
+.ai-icon {
+    font-size: 1.1em;
+    filter: grayscale(1);
+    transition: filter 0.2s ease;
+}
+
+.tab-btn.active .ai-icon,
+.tab-btn:hover .ai-icon {
+    filter: grayscale(0);
+}
+
+/* Delta badges */
+.delta-badge {
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.delta-badge.positive {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.delta-badge.negative {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Loading spinner */
+.spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid #e2e8f0;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Map styles */
+.leaflet-container {
+    background-color: #f8fafc;
+}
+
+/* Risk table */
+.risk-row {
+    transition: background-color 0.2s;
+}
+
+.risk-row:hover {
+    background-color: #f8fafc;
+}
+
+/* KPI card glow animation */
+@keyframes glow {
+    0% {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    50% {
+        box-shadow: 0 10px 15px -3px rgba(34, 197, 94, 0.4), 0 4px 6px -2px rgba(34, 197, 94, 0.2);
+    }
+    100% {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.animate-glow {
+    animation: glow 0.8s ease-in-out;
+}
+
+/* Timeline drawer */
+.timeline-drawer {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-drawer.open {
+    right: 0;
+}
+
+.timeline-header {
+    padding: 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.timeline-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+/* Timeline date sections */
+.timeline-group {
+    margin-bottom: 32px;
+}
+
+.timeline-date-section {
+    margin-bottom: 24px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+}
+
+.timeline-date-section.today {
+    background: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%);
+    border-color: #3b82f6;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+}
+
+.timeline-date-section.tomorrow {
+    background: linear-gradient(135deg, #f1f5f9 0%, #f8fafc 100%);
+    border-color: #94a3b8;
+    border-style: dashed;
+    box-shadow: 0 2px 4px -1px rgba(148, 163, 184, 0.1);
+}
+
+.timeline-date {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeline-date.today {
+    color: #1e40af;
+}
+
+.timeline-date.tomorrow {
+    color: #64748b;
+}
+
+.timeline-date.selected {
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.timeline-date:hover {
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.timeline-date-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.timeline-date-icon.today {
+    background-color: #3b82f6;
+}
+
+.timeline-date-icon.tomorrow {
+    background-color: #94a3b8;
+    border: 2px solid white;
+}
+
+/* Timeline stops */
+.timeline-stop {
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 3px solid transparent;
+    background: white;
+}
+
+.timeline-stop:hover {
+    background-color: #f8fafc;
+    transform: translateX(2px);
+}
+
+.timeline-stop.active {
+    background-color: #e0e7ff;
+    border-left-color: #3b82f6;
+    box-shadow: 0 2px 4px -1px rgba(59, 130, 246, 0.2);
+}
+
+.timeline-stop.has-risk {
+    border-left-color: #f59e0b;
+    background-color: #fefbf1;
+}
+
+.timeline-stop.has-risk:hover {
+    background-color: #fef3c7;
+    box-shadow: 0 2px 4px -1px rgba(245, 158, 11, 0.2);
+}
+
+.timeline-stop.optimised-by-ai {
+    border-left-color: #10b981;
+    background-color: #f0fdf4;
+}
+
+.timeline-stop.optimised-by-ai:hover {
+    background-color: #dcfce7;
+    box-shadow: 0 2px 4px -1px rgba(16, 185, 129, 0.2);
+}
+
+.timeline-stop.warehouse-stop {
+    border-left-color: #2563eb;
+    background-color: #eff6ff;
+    font-weight: 600;
+}
+
+.timeline-stop.warehouse-stop:hover {
+    background-color: #dbeafe;
+    box-shadow: 0 2px 4px -1px rgba(37, 99, 235, 0.2);
+}
+
+.timeline-stop .eta {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.9rem;
+}
+
+.timeline-stop .address {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.timeline-stop .risk-indicator {
+    display: inline-block;
+    margin-left: 8px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.timeline-stop .ai-indicator {
+    display: inline-block;
+    margin-left: 8px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: #10b981;
+    background-color: #dcfce7;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.risk-high {
+    color: #dc2626;
+}
+
+.risk-medium {
+    color: #f59e0b;
+}
+
+.risk-low {
+    color: #eab308;
+}
+
+.risk-resolved {
+    color: #10b981;
+}
+
+/* Risk Modal */
+.risk-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.risk-modal.hidden {
+    display: none;
+}
+
+.risk-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.risk-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.risk-modal-info {
+    margin-bottom: 20px;
+}
+
+.risk-modal-address {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.risk-modal-risk {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 16px;
+}
+
+.risk-modal-risk.high {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.risk-modal-risk.medium {
+    background-color: #fffbeb;
+    color: #f59e0b;
+}
+
+.risk-modal-risk.low {
+    background-color: #fefce8;
+    color: #eab308;
+}
+
+.risk-modal-section {
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+}
+
+.risk-modal-section h4 {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.risk-modal-section p {
+    color: #64748b;
+    line-height: 1.5;
+    font-size: 0.875rem;
+}
+
+.risk-modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* AI Summary Cards */
+.ai-summary-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.ai-summary-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+    transform: translateY(-1px);
+}
+
+.ai-summary-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.ai-summary-card-icon.positive {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.ai-summary-card-icon.negative {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.ai-summary-card-title {
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+    font-size: 0.875rem;
+}
+
+.ai-summary-card-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.ai-summary-card-description {
+    color: #64748b;
+    font-size: 0.75rem;
+    line-height: 1.4;
+}
+
+.ai-summary-card-click-hint {
+    color: #3b82f6;
+    font-size: 0.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+}
+
+/* Flash animation for risk rows */
+@keyframes flash-green {
+    0%, 100% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #d1fae5;
+    }
+}
+
+.flash-green {
+    animation: flash-green 1s ease-in-out;
+}
+
+/* Demand slider styling */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+    background: #e2e8f0;
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #3b82f6;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    margin-top: -5px;
+}
+
+input[type="range"]::-moz-range-track {
+    background: #e2e8f0;
+    height: 6px;
+    border-radius: 3px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    background: #3b82f6;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    border: none;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    header button,
+    #landingPage,
+    #loadingSpinner,
+    .tab-btn:not(.active),
+    #showTimelineBtn,
+    .timeline-drawer:not(.open),
+    .risk-modal {
+        display: none !important;
+    }
+    
+    .shadow-lg {
+        box-shadow: none !important;
+    }
+    
+    main {
+        max-width: 100% !important;
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    #map {
+        height: 50vh !important;
+    }
+    
+    .timeline-drawer {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .risk-modal-content {
+        margin: 16px;
+        max-width: calc(100% - 32px);
+    }
+}
+
+/* Cursor states */
+.cursor-progress {
+    cursor: progress !important;
+}
+
+.cursor-progress * {
+    cursor: progress !important;
+}
+
+/* Accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Route colors */
+.route-color-A { color: #ef4444; }
+.route-color-B { color: #3b82f6; }
+.route-color-C { color: #10b981; }
+
+/* Dashed polyline for rescheduled routes */
+.dashed-route {
+    stroke-dasharray: 6 4;
+} 
